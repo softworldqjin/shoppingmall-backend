@@ -115,8 +115,9 @@ Controller, Service, Repository, Entity 구조로 설계했습니다.
 ## 🔐 환경 변수 설정
 
 보안을 위해 민감한 정보(DB 계정, AWS Key)는 환경 변수로 관리합니다.
-
+``
 DB_USERNAME=your_db_username
 DB_PASSWORD=your_db_password
 AWS_ACCESS_KEY=your_access_key
 AWS_SECRET_KEY=your_secret_key
+``
