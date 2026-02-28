@@ -18,16 +18,24 @@ public class S3Service {
     private final S3Presigner s3Presigner;
 
     String createPresignedUrl(String path) {
+        String contentType = getContentType(path);
+
         var putObjectRequest = PutObjectRequest.builder()
                 .bucket(bucket)
                 .key(path)
-                .contentType("image/png")
+                .contentType(contentType)
                 .build();
         var preSignRequest = PutObjectPresignRequest.builder()
                 .signatureDuration(Duration.ofMinutes(3))
                 .putObjectRequest(putObjectRequest)
                 .build();
         return s3Presigner.presignPutObject(preSignRequest).url().toString();
+    }
+
+    private String getContentType(String path) {
+        if (path.endsWith(".png")) return "image/png";
+        if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
+        return "application/octet-stream";
     }
 
 }
