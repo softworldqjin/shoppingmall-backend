@@ -25,7 +25,7 @@ Spring Boot 기반으로 구현한 쇼핑몰 웹 애플리케이션입니다.
 - Platform: AWS Elastic Beanstalk
 - Database: Azure MySQL
 - Image Storage: AWS S3
-- <a href="http://gyujinshop.ap-northeast-2.elasticbeanstalk.com" target="_blank">gyujinshop</a>
+- <a href="http://gyujinshop.ap-northeast-2.elasticbeanstalk.com" target="_blank">서비스 바로가기</a>
 
 AWS Elastic Beanstalk에 Spring Boot 애플리케이션을 배포하고,  
 Azure MySQL과 AWS S3를 연동하여 실제 서비스 환경으로 구성했습니다.
