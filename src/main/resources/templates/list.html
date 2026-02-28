@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="/main.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:replace="~{nav.html::navbar}"></div>
+
+<form action="/search" method="GET">
+    <input name="searchText" style="display : inline">
+    <button>검색</button>
+</form>
+
+<div class="card" th:each="i : ${items}">
+    <img th:src="${i.url} ?: @{https://placehold.co/300}">
+    <div>
+        <h4 th:text="${i.title}">상품</h4>
+        <a th:href="@{/detail/{id}(id=${i.id})}">상품상세</a>
+        <p th:text="${i.price}">가격</p>
+        <a th:href="@{/edit/{id}(id=${i.id})}">상품수정</a>
+        <span th:onclick="fetch('/item?id=[[${i.id}]]', { method : 'DELETE' } )
+            .then(r => r.text())
+            .then(() => {
+              location.reload();
+            })
+            ">🗑삭제</span>
+
+    </div>
+</div>
+
+
+<div class="pagination">
+    <span th:each="p : ${#numbers.sequence(1, page.totalPages)}">
+        <a th:href="@{'/list/page/' + ${p}}"
+           th:text="${p}"
+           th:classappend="${p == page.number + 1} ? 'active'"></a>
+    </span>
+</div>
+
+
+<!--    <button class="btn">버튼</button>-->
+<!--<script>-->
+<!--    document.querySelectorAll('.btn')[0].addEventListener('click', function () {-->
+<!--        fetch('/test1?name=kim&age=20')-->
+<!--    });-->
+
+<!--</script>-->
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="/main.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:replace="~{nav.html::navbar}"></div>
+
+<div class="detail">
+    <h4>상세페이지</h4>
+    <img th:src="${i.url} ?: @{https://placehold.co/300}">
+    <div>
+        <h4 th:text="${i.title}">상품</h4>
+
+        <p th:text="${i.price + '원'}">가격</p>
+
+        <div th:each="c : ${comments}">
+            <h4 th:text="${c.username}">유저이름</h4>
+            <h3 th:text="${c.content}">상품리뷰</h3>
+        </div>
+    </div>
+
+    <form action="/comment" method="POST">
+        <input type="hidden" name="id" th:value="${i.id}">
+        <input type="hidden" name="username" th:value="${#authentication.name}"
+               sec:authorize="isAuthenticated()">
+        <input name="comment" style="display: inline">
+        <button type="submit">작성</button>
+    </form>
+</div>
+
+<div class="pagination">
+    <span th:each="p : ${#numbers.sequence(0, comments.totalPages - 1)}">
+        <a th:href="@{/detail/{id}(id=${i.id}, page=${p})}"
+           th:text="${p + 1}"
+           th:classappend="${p == currentPage} ? 'active'"></a>
+    </span>
+</div>
+
+</body>
+</html>
