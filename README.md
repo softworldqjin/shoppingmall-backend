@@ -34,8 +34,8 @@ Azure MySQL과 AWS S3를 연동하여 실제 서비스 환경으로 구성했습
 
 ## ⚙️ 기술 스택
 
-- Java
-- Spring Boot
+- Java 17
+- Spring Boot 3.5.10
 - Spring MVC
 - Spring Data JPA
 - MySQL (Azure Database for MySQL)
