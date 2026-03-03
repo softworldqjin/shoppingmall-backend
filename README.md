@@ -94,11 +94,11 @@ Controller, Service, Repository, Entity 구조로 설계했습니다.
 
 - 회원가입 후 로그인 가능
 - BCrypt 기반 비밀번호 암호화 후 저장
-<img width="424" height="111" alt="Image" src="https://github.com/user-attachments/assets/ba08d2bd-22e2-4108-b1a2-00708f5333ea" />
 - 로그인 상태에서만 게시글 작성 가능
 - 로그인 상태에서만 댓글 작성 가능
 - 세션 기반 인증 방식 적용
 
+<img width="424" height="111" alt="Image" src="https://github.com/user-attachments/assets/ba08d2bd-22e2-4108-b1a2-00708f5333ea" />
 ---
 
 ## ☁️ 인프라 연동
