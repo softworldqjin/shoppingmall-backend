@@ -99,6 +99,7 @@ Controller, Service, Repository, Entity 구조로 설계했습니다.
 - 세션 기반 인증 방식 적용
 
 <img width="424" height="111" alt="Image" src="https://github.com/user-attachments/assets/ba08d2bd-22e2-4108-b1a2-00708f5333ea" />
+
 ---
 
 ## ☁️ 인프라 연동
